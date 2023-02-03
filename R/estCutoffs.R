@@ -77,7 +77,7 @@ estCutoffs <- function(x) {
     .check_args_estCutoffs(args)
 
     ids <- rownames(bc_key <- metadata(x)$bc_key)
-    n_seps <- length(names(seps) <- seps <- seq(0, 1, 0.01))
+    n_seps <- length(names(seps) <- seps <- seq(0, 1, 0.02))
     
     # split cell by barcode ID
     cs <- split(seq_len(ncol(x)), x$bc_id)
