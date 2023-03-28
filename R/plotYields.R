@@ -75,7 +75,7 @@ plotYields <- function(x, which = 0,
     names(which) <- which <- which[m]
     
     # compute yields & cell counts
-    n_seps <- length(names(seps) <- seps <- seq(0, 1, 0.01))
+    n_seps <- length(names(seps) <- seps <- seq(0, 1, 0.02))
     yields <- vapply(seps, function(u) x$delta >= u, logical(ncol(x)))
     counts <- vapply(seps, function(u) {
         v <- ifelse(u == seps[n_seps], u, u + 0.01)
