@@ -77,13 +77,17 @@ estCutoffs <- function(x) {
     .check_args_estCutoffs(args)
 
     ids <- rownames(bc_key <- metadata(x)$bc_key)
+    cat("seqs at 0,1,0.1")
     n_seps <- length(names(seps) <- seps <- seq(0, 1, 0.1))
     
     # split cell by barcode ID
     cs <- split(seq_len(ncol(x)), x$bc_id)
     
+    cat('vapply 1')
+    
     # compute yields upon applying separation cutoffs
     ys <- vapply(seps, function(u) x$delta >= u, numeric(ncol(x)))
+    cat('vapply 2')                 
     ys <- vapply(ids, function(id) 
         colMeans(ys[cs[[id]], , drop = FALSE]), 
         numeric(n_seps))
